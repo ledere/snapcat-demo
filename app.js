@@ -42,6 +42,8 @@ app.get('/users', user.list);
 
 var catmin = require('./routes/catmin');
 app.get('/catmin', catmin.listCats(CatModel));
+app.get('/catmin/add', catmin.displayAddCatForm());
+app.post('/catmin/add', catmin.addCat(CatModel));
 
 
 

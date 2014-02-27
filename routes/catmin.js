@@ -15,3 +15,28 @@ exports.listCats = function(CatModel) {
         });
     };
 };
+
+exports.displayAddCatForm = function() {
+    return function(req, res) {
+        res.render('addCatForm', { title: 'Add New Cat' });
+    };
+};
+
+exports.addCat = function (CatModel) {
+    return function (req, res) {
+        var cat = new CatModel({
+            name: req.body.name,
+            description: req.body.description
+        });
+        cat.save(function (err) {
+            if (!err) {
+                // redirect to main page
+                res.location("catmin");
+                res.redirect("catmin");
+            }
+            else {
+                res.render('addCatForm', { title: 'Add New Cat', message: err });
+            }
+        });
+    }
+};

@@ -1,0 +1,9 @@
+extends layout
+block content
+    h1= title
+    p(class='message')= message
+    form#formAddCat(name="adduser",method="post",action="/catmin/add")
+        input#inputCatName(type="text", placeholder="cat name", name="name")
+        input#inputCatDescription(type="text", placeholder="description", name="description")
+        button#btnSubmit(type="submit") submit
+
