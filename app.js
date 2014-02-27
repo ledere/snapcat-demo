@@ -27,6 +27,12 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+/* Start my code  */
+
+// Make a database connection
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/snapcat');
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 
