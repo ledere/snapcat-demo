@@ -44,6 +44,7 @@ var catmin = require('./routes/catmin');
 app.get('/catmin', catmin.listCats(CatModel));
 app.get('/catmin/add', catmin.displayAddCatForm());
 app.post('/catmin/add', catmin.addCat(CatModel));
+app.get('/catmin/delete/:id', catmin.deleteCat(CatModel));
 
 
 

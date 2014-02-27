@@ -6,6 +6,7 @@ block content
         each cat, i in catlist
             li
                 span=cat.name
+                a(href='/catmin/delete/#{cat.id}') (delete)
                 br
                 em=cat.description
 

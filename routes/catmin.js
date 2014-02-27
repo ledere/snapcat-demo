@@ -40,3 +40,19 @@ exports.addCat = function (CatModel) {
         });
     }
 };
+
+exports.deleteCat = function(CatModel) {
+    return function(req, res) {
+        return CatModel.findById( req.params.id, function(err, cat) {
+            return cat.remove(function (err) {
+                if (!err) {
+                    // redirect to main page
+                    res.location("catmin");
+                    res.redirect("catmin");
+                } else {
+                    console.log("error removing cat");
+                }
+            })
+        });
+    }
+};
