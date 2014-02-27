@@ -1,0 +1,10 @@
+extends layout
+block content
+    h1 Cat'a'logue
+    p(class='message')= message
+    ul
+        each cat, i in catlist
+            li
+                span=cat.name
+                br
+                em=cat.description
