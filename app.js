@@ -33,6 +33,10 @@ app.configure('development', function(){
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/snapcat');
 
+// Define our data model
+var models = require('./models');
+var CatModel = models.defineCat(mongoose);
+
 app.get('/', routes.index);
 app.get('/users', user.list);
 
