@@ -46,6 +46,11 @@ app.get('/catmin/add', catmin.displayAddCatForm());
 app.post('/catmin/add', catmin.addCat(CatModel));
 app.get('/catmin/delete/:id', catmin.deleteCat(CatModel));
 
+// Services
+var services = require('./routes/services');
+app.get('/cats', services.getCats(CatModel));
+app.get('/cats/:id', services.getCat(CatModel));
+
 
 
 http.createServer(app).listen(app.get('port'), function(){
